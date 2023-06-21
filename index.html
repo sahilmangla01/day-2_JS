@@ -93,31 +93,32 @@ greeting(intro);</pre>
             <h2 class="Question">Q.7	What is callback hell?</h2>
                 
                 <p class="Explain">Callback hell is a common issue in JavaScript that arises when dealing with multiple asynchronous operations that depend on each other. It occurs when the code becomes nested within multiple callback functions, making it difficult to read and debug.</p>
-               <pre class="code">function getData(callback){
-    console.log("Got the Data ......")
-    setTimeout(()=>{
-        callback();
-    },2000)
-}
-
-function processData(callback){
-    console.log("Process the Data ......")
-    setTimeout(()=>{
-        callback();
-    },2000)
-}
-
-function useData(){
-    console.log("use the Data ......")
-    
-}
-
-
-getData(()=>{
-    processData(()=>{
-        useData()
-    })
-})</pre>
+               <pre class="code">function printNumbers(){
+            setTimeout(()=>{
+                console.log(1)
+                setTimeout(()=>{
+                    console.log(2)
+                    setTimeout(()=>{
+                        console.log(3)
+                        setTimeout(()=>{
+                            console.log(4)
+                            setTimeout(()=>{
+                                console.log(5)
+                                setTimeout(()=>{
+                                    console.log(6)
+                                    setTimeout(()=>{
+                                        console.log(7)
+                    
+                                    },7000)
+                                },6000) 
+                            },5000)
+                        },4000)
+                    },3000)
+                },2000)
+            },1000)
+        }
+        
+        printNumbers();</pre>
         </div>
         <div class="container">
             <h2 class="Question">Q.8	Difference between undefined vs not defined vs NaN?</h2>

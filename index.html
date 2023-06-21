@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Assignment</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./index.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1  >Day-2</h1>
+    </header>
+    
+
+    <div class="container">
+        <h2 class="Question">Q.1	What is execution context?</h2>
+        
+
+        <p class="Explain">When the JavaScript engine scans a script file, it makes an environment called the Execution Context that handles the entire transformation and execution of the code.
+            During the context runtime, the parser parses the source code and allocates memory for the variables and functions and the scope chain.
+            It is destroyed once the code execution is completed.
+
+    </div>
+
+    <div class="container">
+        <h2 class="Question">Q.2	What is an event loop and call stack?</h2>
+        
+        <p class="Explain"><span>Event Loop :</span> gives JavaScript its multitasking abilities. This loop constantly check if the call stack is empty or not and if it is then the functions waiting to be executed inside callback queue will be sent over to callstack
+    </p>
+        <p class="Explain"><span>Call Stack :</span> used by JavaScript to keep track of the function calls . It is just like the stack data structures and follows the rule of first in last out . We use callstack to memorize which function is running right now.
+    </p>
+    
+
+</div>
+
+<div class="container">
+    <h2 class="Question">Q.3	What is creation phase and execution phase?</h2>
+    <p class="Explain"><span>Creation Phase : </span> involves the creation of global and function execution context, creating the scope chain and allocating the memories to the variables and functions.
+        </p>
+        <p class="Explain"><span>Execution Phase : </span> executes the code line by line and stop at the line where we get any error . This includes the ecaluation and the execution of the code.
+        </p>
+        <p class="Explain">In summary, the creation phase and execution phase in JavaScript refer to the moment when the variable and function declarations are created and stored in memory, and the moment when the code is actually executed, line by line.
+        </p>
+        
+    </div>
+
+    <div class="container">
+        <h2 class="Question">Q.4	What is the spread operator?</h2>
+            
+            <p class="Explain"><span>Spread Operator :</span> in JavaScript helps to copy the complete or part of an iterable (strings or arrays) as an individual so that we can operate on that data however we want . This operator is denoted by three dots(...)  </p>
+            <pre class="code"> let obj1 = [1 , 2 , 3];
+                let obj2 = [3 , 4 , 5];
+                let newObj = [...obj1 , ...obj2];
+                console.log(newObj)  <span>//Output is [1 , 2 , 3 , 4 , 5 , 6]</span>
+            </pre>
+    </div>
+
+    <div class="container">
+        <h2 class="Question">Q.5	 What is the use of setTimeout?
+
+        </h2>
+            
+            <p class="Explain"><span>setTimeout():</span> is a JavaScript function that allows you to execute a function once after certain amount of time has been passed . This has 2 parameter: The first is the function to be ececuted and the other is the time delay in milliseconds.
+            </p>
+            <pre class="code">function hello(){
+            console.log("Hello World ")    
+            }
+            setTimeout(()=>{
+                hello();
+            },1000);
+        </pre>
+        </div>
+
+        <div class="container">
+            <h2 class="Question">Q.6	What are callbacks?</h2>
+                
+                <p class="Explain"> These are the function that are passed as an argument inside another function  to be executed inside that other function.</p>
+                <pre class="code">function greeting(intro){
+    console.log("Good Morning Every One")
+    intro();
+}
+
+function intro(){
+    console.log("I am from Prepbytes batch EA23")
+}
+
+greeting(intro);</pre>
+        </div>
+
+        <div class="container">
+            <h2 class="Question">Q.7	What is callback hell?</h2>
+                
+                <p class="Explain">Callback hell is a common issue in JavaScript that arises when dealing with multiple asynchronous operations that depend on each other. It occurs when the code becomes nested within multiple callback functions, making it difficult to read and debug.</p>
+               <pre class="code">function getData(callback){
+    console.log("Got the Data ......")
+    setTimeout(()=>{
+        callback();
+    },2000)
+}
+
+function processData(callback){
+    console.log("Process the Data ......")
+    setTimeout(()=>{
+        callback();
+    },2000)
+}
+
+function useData(){
+    console.log("use the Data ......")
+    
+}
+
+
+getData(()=>{
+    processData(()=>{
+        useData()
+    })
+})</pre>
+        </div>
+        <div class="container">
+            <h2 class="Question">Q.8	Difference between undefined vs not defined vs NaN?</h2>
+                
+                <p class="Explain"><span>Undefined:</span> 
+Undefined is a primitive value in JavaScript that is automatically assigned to a variable that has been declared but not initialized. It indicates the absence of a value.</p>
+<pre class="code">let x;
+    console.log(x) 
+</pre>
+<p class="Explain"><span>Not Defined:</span> 
+A variable that has not been declared or initialized in a program is said to be not defined. Attempting to access such a variable will result in a ReferenceError.</p>
+<pre class="code">console.log(y) </pre>             
+<p class="Explain"><span>NaN:</span>
+NaN stands for "Not a Number". It is a special value in JavaScript that is returned when a mathematical operation fails to produce a meaningful result.</p>
+<pre class="code">let x = 123
+    let y = "Hello"
+    console.log(x-y); 
+</pre>        
+</div >
+
+
+   
+   
+    
+   
+
+
+</body>
+</html>
